@@ -1,0 +1,11 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+   <div class="container tag ">
+       <div class="content-section">
+         <div class="card">
+               <img src="{{object.image.url}}">
+               <h4>{{object.title}} <span><small>${{object.price}}</small></span></h4>
+         </div>
+       </div>
+   </div>
+{%endblock%}

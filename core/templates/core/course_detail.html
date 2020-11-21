@@ -1,0 +1,21 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+<section class="container" >
+    <h1>{{object.title}}</h1>
+    <div class="course-list">
+        {%for lesson in object.lessons%}
+            <a href="{{lesson.get_absolute_url}}">
+                <div class="card">
+                    <h1>{{lesson.title}}</h1>
+                    <img src="{{lesson.image.url}}" alt="">
+                    <p>{{lesson.description}}</p>
+                </div>
+            </a>
+        {%empty%}
+             <h1>Lessons to be published soon!!! please check again next time</h1>
+        {%endfor%}
+        </div>
+</section>
+{%endblock content%}
+
+

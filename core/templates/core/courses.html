@@ -1,0 +1,20 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+<section class="container" >
+    <div class="course-list">
+        {%for course in object_list%}
+        <a href="{%url 'course-details' course.slug %}">
+            <div class="card">
+                <h1>{{course.title}}</h1>
+                <img src="{{course.image.url}}" alt="">
+                <p>{{course.description}}</p>
+            </div>
+        </a>
+        {%empty%}
+             <h1>There are no courses yet</h1>
+        {%endfor%}
+    </div>
+</section>
+{%endblock content%}
+
+
