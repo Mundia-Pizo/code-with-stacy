@@ -32,7 +32,11 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'blogs.apps.BlogsConfig',
-    'app_templates'
+    'app_templates.apps.AppTemplatesConfig',
+    'membership.apps.MembershipConfig',
+    'payments',
+    'accounts',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -119,6 +123,8 @@ MEDIA_URL='/media/'
 MEDIA_ROOT =os.path.join(BASE_DIR,'media')
 
 LOGIN_REDIRECT_URL='home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {

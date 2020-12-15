@@ -4,12 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'core/css/main.css'%}">
-    <title>Automate with stacy</title>
+    <link rel="stylesheet" href="{% static "core/css/main.css"%}">
+    <title>Cracking codes</title>
 </head>
 <body>
-    {%include 'core/nav.html'%}
-    {%block content%} {%endblock content%}
+   {%include 'core/nav.html'%}>
+    <section class="container">
+        <div class="hero">
+            <div id="super">
+                {%block content%}{%endblock content%}
+            </div>
+            <div id="sub">
+                <form action="{%url 'home'%}" method="post">
+                    {%csrf_token%}
+                    <img src="{% static 'core/images/form_image.png'%}" alt="" srcset=""> 
+                    <p>Get more coding tricks by subscribing to our news letter</p>
+                    <input type="email" placeholder="enter email">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <form action="{%url 'home'%}" method="post">
+                    {%csrf_token%}
+                    <img src="{% static 'core/images/form_image.png'%}" alt="" srcset=""> 
+                    <p>Get more coding tricks by subscribing to our news letter</p>
+                    <input type="email" placeholder="enter email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    
+    </section>
     {%include 'core/footer.html'%}
 </body>
 </html>

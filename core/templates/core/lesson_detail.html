@@ -1,14 +1,14 @@
 {%extends 'core/layout.html'%}
 {%block content%}
-<section class="container" >
-    <h1>{{object.title}}</h1>
-    <div class="course-list">
-            <div class="card">
-                <h1>{{object.title}}</h1>
-                <img src="{{object.image.url}}" alt="">
-                <p>{{object.description}}</p>
-            </div>
-        </div>
+<section>
+    <div >
+        {%if object is not None%}
+            <h1>{{object.title}}</h1>
+            <iframe src="{{object.video_url}}" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        {%else%}
+           <p>This is not your subscription plan. <a class="anchor" href="{%url 'payment'%}">Please Upgrade!!!!</a></p>
+        {%endif%}
+    </div>
 </section>
 {%endblock content%}
 

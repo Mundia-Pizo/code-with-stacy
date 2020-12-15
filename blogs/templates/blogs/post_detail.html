@@ -1,0 +1,9 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+    <section>
+        <div class="blog">
+            <h1>{{post.title}}</h1>
+            <p>{{post.body|safe}}</p>
+        </div>        
+    </section>
+{%endblock content%}

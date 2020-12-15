@@ -1,28 +1,19 @@
 {%extends 'core/layout.html'%}
 {%load static%}
 {%block content%}
-<section class="container">
-    <div class="hero">
-      <img src="{% static 'core/images/auto.png'%}" alt="" srcset=""> 
-      <h1>Welcome to Automate with Stacy</h1>
-      <button>Get started!!!</button>
+    <div class="course-list">
+        <h1>Cracking codes Tutorials</h1>
+        <img src="{%static 'core/images/auto1.png'%}" alt="" srcset="">
+        {%for course in object_list%}
+        <a href="{%url 'course-details' course.slug %}">
+            <div class="card">
+                <h1>{{course.title}}</h1>
+                <img src="{{course.image.url}}" alt="">
+                <p>{{course.description}}</p>
+            </div>
+        </a>
+        {%empty%}
+            <h1>There are no courses yet</h1>
+        {%endfor%}
     </div>
-    <div class="bio" >
-        <div class="bio-image" >
-            <img src="{% static 'core/images/bio.jpeg'%}" alt="" srcset="">
-        </div>
-        <div>
-            <p>Hi this is Mundia Stacy Pizo</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit saepe recusandae suscipit numquam modi natus, tempore repudiandae odio facere possimus ullam magni nesciunt ut aliquam asperiores ratione voluptatem tenetur consectetur.</p>
-        </div>
-    </div>
-    <form action="">
-        <h1>Contact Me</h1>
-        <label for="">Email</label>
-        <input type="text">
-        <label for="">Message</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <input type="submit" value="send" placeholder="send">
-    </form>
-</section>
 {%endblock content%}

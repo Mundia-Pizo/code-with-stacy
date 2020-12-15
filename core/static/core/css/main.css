@@ -9,14 +9,12 @@ nav{
     background-color: #455a64;
     height: 100px;
     margin:auto;
-    align-items:center;
-    align-content:center
 }
-a{
-    color:#000;
+ nav a{
+    color:white;
 }
 nav a:hover{
-    color:#fafafa;
+    color:#278b2c;
 }
 
 .container{
@@ -31,54 +29,53 @@ nav ul,.display{
 }
 
 ul li{
-    padding:40px 10px 0 10px
+    padding:40px 10px 0 10px;
+
 }
 
 nav h1{
     padding:38px 0 0 0
 }
+#super{
+    width:70%;
+}
 
-img{
+#super a img{
     margin:auto;
-    justify-content:space-around;
-    height:400px;
-    width:800px;
+    justify-content:space-between;
+    width:100%;
     object-fit:cover;
+    margin-bottom: 40px;
 
+}
+#super h1{
+    margin-bottom: 15px;
+    text-align:center
+}
+#sub img{
+    width: 100%;
 }
 
 .hero{
     margin:auto;
-    align-content: center;
-    width:800px;
+    width:100%;
     padding-top:20px;
-    text-align:center;
     margin-bottom: 20px;
 }
 .hero button{
     margin-top: 10px;
 }
 .hero h1{
-    text-decoration-color: Blue;
-}
-.bio{
-   background-color:#808e95 ;
-   height:250px;
-   display:flex;
-   flex-direction:row;
-   margin-bottom: 20px;
-   width:700px;
-   margin:auto;
-   margin-bottom: 20px;
+    font-size:30px;
+    text-align: center;
+   margin-bottom:8px;
 
 }
-
-.bio-image img{
-    width:200px;
-    height:200px;
-    border-radius: 50%;
-    padding:0 0 20px 0;
+.hero img{
+    width: 100%;
+    margin-bottom:25px
 }
+
 footer{
     padding-top:40px;
     margin-bottom: 100px;
@@ -87,19 +84,31 @@ footer{
 form{
     display: flex;
     flex-direction:column;
-    width: 600px;
-    padding:8px;
+    width: 300px;
+    padding:25px 20px 25px 20px;
     background-color:lightgray;
     margin:auto;
     margin-bottom:40px;
+    margin-top:40px
 }
+#sub form{
+    display: flex;
+    flex-direction:column;
+    width: 250px;
+    padding:25px 20px 25px 20px;
+    background-color:lightgray;
+    margin:auto;
+    margin-bottom:40px;
+    margin-top:40px
+}
+
 form input{
     margin-top: 10px;
 }
 
 .card{
    border: 1px solid lightgray;
-   width: 250px;
+   max-width: 280px;
    margin:10px;
    padding:10px;
    align-content: center;
@@ -109,22 +118,29 @@ form input{
     border: 1px solid blue;
 }
 .card img{
-    height: 150px;
-    width: 100%;
+    height: 200px;
+    width: 280px;
     align-items: center;
     object-fit:cover
 }
+.card h1{
+    font-size:25px
+}
 .course-list{
+    width: 90%;
+   flex-wrap: wrap;
+}
+
+.hero{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: space-between;
     flex-wrap: wrap;
-    align-items: flex-start;
-    margin-top:40px;
-    margin-bottom:150px;
+    margin-top:20px;
+    margin-bottom:100px;
 }
 .content-section{
-    text-align: center;
     display: flex;
     flex-direction:row;
     flex-wrap: wrap-reverse;
@@ -133,11 +149,10 @@ form input{
     
 }
 .tag{
-    text-align: center;
     margin-bottom: 100px;
 }
 .tag h1{
-    margin-top:40px;
+    margin-top:20px;
     margin-bottom:20px;
 }
 .tag h4{
@@ -148,9 +163,19 @@ a:hover(){
 }
 
 pre{
+    margin-top:20px;
     background-color:#e8f5e9;
-    padding:20px 15px 25px 15px
+    padding:20px 15px 25px 15px;
+    margin-bottom:20px;
 }
+.main-body, .course-list{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-top:40px;
+}
+
 
 .body{
     width: 50%;
@@ -167,4 +192,58 @@ pre{
 .footer-column , .footer-column ul{
     display: flex;
     flex-direction:column;
+}
+
+.lesson-detail{
+    margin: auto;
+    margin-bottom: 80px;
+    width: 60%;
+}
+.lesson-detail h1{
+    margin-top:15px
+}
+iframe{
+    margin-bottom: 80px;
+}
+form{
+    display: flex;
+    flex-direction:column;
+    width:40%;
+    margin:auto;
+}
+
+
+.blog h1{
+    margin-top:20px;
+    margin-bottom:20px
+}
+.topic-card{
+    display: flex;
+    justify-content: space-between;
+    justify-content:space-between;
+    max-height: 150px;
+    width: 100%;
+    border: 1px solid lightgray;
+    margin-top:40px;
+    border-radius: 5px;
+}
+.topic-card img{
+    height:150px;
+    width:90%;
+    object-fit: cover;
+
+}
+.topic-content{
+    width: 30%;
+}
+.topic-body{
+    width:65%;
+}
+
+.pay-form input{
+    width: 50px;
+}
+
+.bio-image{
+    
 }

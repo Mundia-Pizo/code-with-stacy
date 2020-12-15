@@ -1,11 +1,13 @@
 from django.db import models
 from django.shortcuts import reverse
+from membership.models import Membership
 
 class Course(models.Model):
     title        = models.CharField(max_length=200)
     description = models.TextField()
     image        = models.ImageField(upload_to="course-images")
     slug         = models.SlugField(null=True, blank=True)
+    allowed_membership = models.ManyToManyField(Membership, default='free')
 
     def __str__(self):
         return self.title
@@ -25,6 +27,7 @@ class Lesson(models.Model):
     image       = models.ImageField(upload_to="lesson-images")
     slug        = models.SlugField(null=True, blank=True)
     date        = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    video_url   = models.CharField(max_length=400)
 
     def __str__(self):
         return self.title
@@ -38,20 +41,4 @@ class Lesson(models.Model):
     def topic(self):
         return self.topic_set.objects.all()
         
-class Topic(models.Model):
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    title  = models.CharField(max_length=200)
-    detail = models.TextField()
-    video  = models.FileField(upload_to="topic-files")
-    slug   = models.SlugField(null=True, blank=True)
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self, *args, **kwargs):
-        return reverse('lessons', kwargs={
-            "course_slug":self.course.slug,
-            "lesson_slug":self.lesson.slug,
-            "topic_slug":self.slug
-        })
 

@@ -3,7 +3,6 @@
    <div class="container tag ">
        <div class="banner">
           <h1>Complete code Template Packages</h1>
-          <h4> Excellent UI/UX designs</h4>
        </div>
        <div class="content-section">
        {%for template in object_list%}
@@ -12,9 +11,8 @@
                <img src="{{template.image.url}}"></a>
                <h4>{{template.title}} <span><small>${{template.price}}</small></span></h4>
          </div>
-       {%empty%}
-            <h1>No templates uploaded</h1>
-       {%endfor%}
+      {%endfor%}
     </div>
    </div>
 {%endblock%}
+

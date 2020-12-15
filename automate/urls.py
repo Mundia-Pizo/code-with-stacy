@@ -9,9 +9,12 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('blog/',include('blogs.urls')),
+    path('blogs/',include('blogs.urls')),
     path('temp/', include('app_templates.urls')),
-    path('login', auth_views.LoginView.as_view(template_name='core/login.html'),name='login')
+    path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'),name='login'),
+    path('payment/', include('payments.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,19 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+    <section>
+        <div class="blog">
+            <h1>Tutorials</h1>
+            {%for topic in object_list%}
+            <div class="topic-card">
+                <div class="topic-content">
+                    <a href="{{topic.get_absolute_url}}"><img src="{{topic.image.url}}" alt="" srcset=""></a>
+                </div>
+                <div class="topic-body">
+                    <a href="{{topic.get_absolute_url}}"><h2>{{topic.title}}</h2></a>
+                    <p>{{topic.description}}</p>
+                </div>
+            </div>
+            {%endfor%}
+        </div> 
+    </section>
+{%endblock content%}
