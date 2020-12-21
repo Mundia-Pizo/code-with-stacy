@@ -1,6 +1,6 @@
-{%extends 'core/layout.html'%}
+{%extends 'accounts/base.html'%}
 {%block content%}
-<section class="container" >
+<section class="">
     {%if object.allowed_membership  == 'free'%}
         <h1>Upgrade to professional subscription</h1>
         <p>{{object.allowed_membership.price}}</p>
@@ -8,13 +8,12 @@
     <h1>{{object.title}}</h1>
       <div class="course-list">
             {%for lesson in object.lessons%}
+            <div class="card">
                 <a href="{{lesson.get_absolute_url}}">
-                    <div class="card">
-                        <h1>{{lesson.title}}</h1>
-                        <img src="{{lesson.image.url}}" alt="">
-                        <p>{{lesson.description}}</p>
-                    </div>
+                    <img src="{{lesson.image.url}}" alt="">
+                    <p>{{lesson.description}}</p>
                 </a>
+            </div>
             {%empty%}
                 <h1>Lessons to be published soon!!! please check again next time</h1>
             {%endfor%}

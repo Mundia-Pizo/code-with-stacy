@@ -1,18 +1,20 @@
 {%extends 'core/layout.html'%}
 {%block content%}
-   <div class="container tag ">
+<section class="content-decoration">
+   <div class="container">
        <div class="banner">
           <h1>Complete code Template Packages</h1>
        </div>
-       <div class="content-section">
+       <div class="course-list banner">
        {%for template in object_list%}
        <div class="card">
-          <a href="{%url 'snippet-detail' template.slug%}">
+          <a  href="{%url 'snippet-detail' template.slug%}"  >
                <img src="{{template.image.url}}"></a>
                <h4>{{template.title}} <span><small>${{template.price}}</small></span></h4>
          </div>
       {%endfor%}
     </div>
    </div>
+</section>
 {%endblock%}
 

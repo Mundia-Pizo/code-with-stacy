@@ -1,12 +1,32 @@
 {%extends 'accounts/base.html'%}
+{%load crispy_forms_tags%}
 {%block content%}
 <form action="{%url 'payment'%}" method="POST" enctype="multipart/form-data">
-    <div class="pay-form">
+   
+    <div class="">
+        <legend><h1>Payment</h1></legend>
         {%csrf_token%}
-        <label for="">Card Number</label>
-        {{form.cardno}}
-        <input type="hidden" name="{{user.userName}}">
-        <input type='submit' value='submit'>
+        <div class="payment-form">
+            <div class="card-input">
+                <label for="">Card Number</label>
+                {{form.cardno}}
+            </div>
+            <div class="date-input">
+                <div class="card-md-input">
+                    <label for="">Expiry month</label>
+                    {{form.expirymonth }}
+                </div>
+                <div class="card-md-input">
+                    <label for="">Expiry year</label>
+                    {{form.expiryyear }}
+                </div>
+            </div>
+            <div class="card-md-input">
+                <label class="cvv" for="">cvv</label>
+                {{form.cvv}}
+                <button type="submit">Make Payments</button>
+            </div>
+        </div>
     </div>
 </form>
 {%endblock content%}

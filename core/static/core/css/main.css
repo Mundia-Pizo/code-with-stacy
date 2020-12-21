@@ -6,7 +6,7 @@
 }
 
 nav{
-    background-color: #455a64;
+    background-color: #7a6853;
     height: 100px;
     margin:auto;
 }
@@ -21,7 +21,10 @@ nav a:hover{
     width: 80%;
     margin: auto;
 }
-
+.container h1{
+    text-align: center;
+    padding-top: 25px;
+}
 nav ul,.display{
     display: flex;
     flex-direction: row;
@@ -36,9 +39,6 @@ ul li{
 nav h1{
     padding:38px 0 0 0
 }
-#super{
-    width:70%;
-}
 
 #super a img{
     margin:auto;
@@ -46,7 +46,6 @@ nav h1{
     width:100%;
     object-fit:cover;
     margin-bottom: 40px;
-
 }
 #super h1{
     margin-bottom: 15px;
@@ -61,14 +60,16 @@ nav h1{
     width:100%;
     padding-top:20px;
     margin-bottom: 20px;
+    
 }
+
 .hero button{
     margin-top: 10px;
 }
 .hero h1{
     font-size:30px;
     text-align: center;
-   margin-bottom:8px;
+    margin-bottom:8px;
 
 }
 .hero img{
@@ -78,20 +79,18 @@ nav h1{
 
 footer{
     padding-top:40px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
 }
 
 form{
     display: flex;
-    flex-direction:column;
-    width: 300px;
     padding:25px 20px 25px 20px;
-    background-color:lightgray;
+    background-color:#e8f5e9;
     margin:auto;
     margin-bottom:40px;
     margin-top:40px
-}
-#sub form{
+} 
+ #sub form{
     display: flex;
     flex-direction:column;
     width: 250px;
@@ -100,35 +99,49 @@ form{
     margin:auto;
     margin-bottom:40px;
     margin-top:40px
+} 
+.card-input{
+    max-width: 400px;
 }
-
-form input{
-    margin-top: 10px;
+.card-input input{
+    width:260px
+}
+.date-input{
+    display: flex;
+    flex-direction:row;
+    max-width: 400px;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+.card-md-input input{
+    width: 80px;
+}
+.cvv{
+    padding:0 64px 0 5px;
 }
 
 .card{
-   border: 1px solid lightgray;
    max-width: 280px;
    margin:10px;
    padding:10px;
    align-content: center;
-   border-radius: 5px
+   border-radius: 5px;
+   background-color:white;
 }
 .card:hover{
     border: 1px solid blue;
 }
 .card img{
     height: 200px;
-    width: 280px;
+    width: 100%;
     align-items: center;
-    object-fit:cover
+    object-fit:cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px
 }
 .card h1{
     font-size:25px
-}
-.course-list{
-    width: 90%;
-   flex-wrap: wrap;
 }
 
 .hero{
@@ -140,20 +153,19 @@ form input{
     margin-top:20px;
     margin-bottom:100px;
 }
-.content-section{
+/* .content-section{
     display: flex;
     flex-direction:row;
     flex-wrap: wrap-reverse;
     justify-content: space-evenly;
     margin:auto;
     
-}
+} */
 .tag{
     margin-bottom: 100px;
 }
 .tag h1{
     margin-top:20px;
-    margin-bottom:20px;
 }
 .tag h4{
     margin-bottom: 15px;
@@ -168,26 +180,31 @@ pre{
     padding:20px 15px 25px 15px;
     margin-bottom:20px;
 }
-.main-body, .course-list{
+footer{
+    background-color:#fafafa;
+}
+.main-body, .course-list,.blog-section{
     display: flex;
     flex-direction:row;
     flex-wrap: wrap;
     justify-content:space-between;
     margin-top:40px;
+    align-items: center;
+}
+.blog-section{
+    margin-top: 0px;
+    margin-bottom:40px
 }
 
-
-.body{
-    width: 50%;
-    margin-bottom:100px;
-}
-
-
-.footer-section{
+.footer-section,.icon-section{
     display: flex;
     flex-direction:row;
     flex-wrap: wrap;
     justify-content:space-between
+}
+.icon-section{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .footer-column , .footer-column ul{
     display: flex;
@@ -197,7 +214,6 @@ pre{
 .lesson-detail{
     margin: auto;
     margin-bottom: 80px;
-    width: 60%;
 }
 .lesson-detail h1{
     margin-top:15px
@@ -206,10 +222,20 @@ iframe{
     margin-bottom: 80px;
 }
 form{
-    display: flex;
-    flex-direction:column;
     width:40%;
     margin:auto;
+    margin-top: 40px;
+    margin-bottom:40px;
+}
+form legend h1{
+    margin-bottom: 15px;
+    color: blue
+}
+.fieldWrapper{
+    display: flex;
+    flex-direction:column;
+    margin-top:8px;
+    margin-bottom:8px;
 }
 
 
@@ -239,11 +265,145 @@ form{
 .topic-body{
     width:65%;
 }
-
-.pay-form input{
-    width: 50px;
+/* This is  style for the images that are uploaders via ckeditor */
+p img{
+    border: 1px solid #8151cd;
+    border-radius: 5px;
 }
 
-.bio-image{
-    
+button {
+    background-color: #4CAF50; /* Green */
+    border: 5px;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+.bio {
+    position: relative;
+}
+.bio img{
+  width:100%;
+  height:700px;
+  margin:auto;
+}
+.bio-data{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display:flex;
+    flex-direction: column;
+    align-items: center
+  }
+
+  .bio-data h1, .banner h1, .copyright p{
+      text-align: center;
+  }
+  .copyright p{
+      margin-top: 25px;
+  }
+  .banner h1{
+      margin-top:25px;
+  }
+  .banner{
+      align-items: center;
+  }
+
+.bio-data img{
+    height:400px;
+    width:100%;
+    border: 4px solid white;
+    margin-top:40px;
+    object-fit: cover;
+}
+
+.bio-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bio-info h4, .bio-info p{
+    text-align: center;
+    margin-top:15px;
+}
+.content-decoration{
+    background-color:#fafafa;
+}
+
+.home-margin{
+    margin-top: 60px;
+}
+.info{
+    align-items: center;
+    text-align: center;
+}
+.info h1{
+    padding-top: 20px;
+}
+.icon{
+   max-width:250px;
+}
+.icon img{
+    border-radius: 10px;
+    height: 50px;
+    width: 70px;
+    margin-top: 10px;
+    padding:0 20px 0 20px;
+}
+.blog{
+    width: 70%;
+    margin:auto;
+}
+.video-position{
+    margin:auto;
+}
+.side-bar{
+    padding: 25px 25px 25px 25px;
+    border-radius: 10px;
+    width: 200px;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 1px solid lightgray;
+    align-items: center;
+    margin:auto;
+    margin-top:120px;
+    margin-left: 15px;
+}
+.side-bar p{
+    padding:4px 6px 4px 6px;
+    background-color: #fafafa;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right:5px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+@media(max-width:920px){
+    .bio-data h1{
+        font-size:large;
+    }
+    .bio-data img{
+        height:300px;
+    }
+    .bio-data{
+        top: 50%; 
+      }
+      .home-margin{
+        margin-top: 40px;
+    }
+    .container{
+        width: 95%;
+    }
+    .side-bar{
+        margin-top: 60px;
+        margin-bottom: 60px;
+        width:400px;
+    }
 }

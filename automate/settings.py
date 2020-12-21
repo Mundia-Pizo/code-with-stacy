@@ -127,11 +127,11 @@ LOGIN_REDIRECT_URL='home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
+CKEDITOR_5_CONFIGS = {
     'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline', 'CodeSnippet'],
+        # 'toolbar': 'Custom',
+        'toolbar': [
+            ['Heading','|','Bold', 'Italic', 'Underline', 'CodeSnippet'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Image', 'Flash', 'Table', 'Horizontal'],
             ['TextColor', 'BGColor'],
@@ -139,15 +139,9 @@ CKEDITOR_CONFIGS = {
             ['Link', 'Unlink'],
             ['RemoveFormat', 'Source']
         ], 
-        'extraPlugins':'codesnippet'
+        'extraPlugins':'codesnippet',
     },
-    # 'special':{
-    #     'toolbar':'Special',
-    #     'toolbar_Special':[
-    #         ['Bold', 'CodeSnippet'],
-    #     ],
-    #     'extraPlugins':'codesnippet'
-    # }
+  
 }
 
 

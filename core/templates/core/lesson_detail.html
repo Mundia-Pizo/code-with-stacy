@@ -1,7 +1,7 @@
 {%extends 'core/layout.html'%}
 {%block content%}
-<section>
-    <div >
+<section class="container">
+    <div class="video-position">
         {%if object is not None%}
             <h1>{{object.title}}</h1>
             <iframe src="{{object.video_url}}" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>

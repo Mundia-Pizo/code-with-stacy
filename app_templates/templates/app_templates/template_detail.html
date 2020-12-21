@@ -1,10 +1,11 @@
-{%extends 'core/layout.html'%}
+{%extends 'accounts/base.html'%}
 {%block content%}
    <div class="container tag ">
        <div class="content-section">
-         <div class="card">
-               <img src="{{object.image.url}}">
-               <h4>{{object.title}} <span><small>${{object.price}}</small></span></h4>
+         <div class="">
+               <h1>{{object.title}} </h1>
+               <p>{{object.details|safe}}</p>
+               <button type="submit">Buy {{object.price}}</button>
          </div>
        </div>
    </div>

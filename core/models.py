@@ -42,3 +42,5 @@ class Lesson(models.Model):
         return self.topic_set.objects.all()
         
 
+class MailSubscription(models.Model):
+    email = models.EmailField()
