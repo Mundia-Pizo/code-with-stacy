@@ -24,13 +24,27 @@ class  SubsriptionView(FormView):
       
 class  ThanksView(TemplateView):
     template_name = 'core/thanks.html'
+    
 class CourseListView(LoginRequiredMixin, ListView):
     model = Course
     template_name ='core/courses.html'
 
-class CourseDetailView(LoginRequiredMixin, DetailView):
+class CourseDetailView(LoginRequiredMixin,View):
     model = Course
     template_name = 'core/course_detail.html'
+
+    def get(self, request, slug, *args, **kwargs):
+        course_qs = Course.objects.filter(slug=slug)
+        if course_qs.exists():
+            course = course_qs.first()
+            if course.enroled == False:
+                context={
+                    'object':course
+                }
+                return render(request, 'core/course_detail.html', context)
+            context={'object':course}
+        return render(request, 'core/course_detail_enroled.html', context)
+
     
 class LessonDetailView(LoginRequiredMixin, View):
     def get(self,request, course_slug, lesson_slug, *args, **kwargs):
@@ -42,14 +56,14 @@ class LessonDetailView(LoginRequiredMixin, View):
         if lesson_qs.exists(): 
             lesson=lesson_qs.first()
 
-        user_membership = UserMembership.objects.filter(user=request.user).first()       
-        user_membership_type=user_membership.membership.membership_type
+        # user_membership = UserMembership.objects.filter(user=request.user).first()       
+        # user_membership_type=user_membership.membership.membership_type
 
-        course_allowed_membership_types=course.allowed_membership.all()
-        context={
-            "object":None
-        }
-        if course_allowed_membership_types.filter(membership_type=user_membership_type).exists():
+        # course_allowed_membership_types=course.allowed_membership.all()
+        # context={
+        #     "object":None
+        # }
+        # if course_allowed_membership_types.filter (membership_type=user_membership_type).exists():
             context={
                  'object':lesson
              }

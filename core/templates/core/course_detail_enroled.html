@@ -1,0 +1,30 @@
+{%extends 'accounts/base.html'%}
+{%load static %}
+{%block content%}
+<section class="content-decoration">
+    <div class="container">
+    {%if object.allowed_membership  == 'free'%}
+        <h1>Upgrade to professional subscription</h1>
+        <p>{{object.allowed_membership.price}}</p>
+    {%else%}
+    <div>
+        <div class="course-list lessons">
+            {%for lesson in object.lessons%}
+            <div class="card">
+                <a href="{{lesson.get_absolute_url}}">
+                    <img src="{{lesson.image.url}}" alt="">
+                    <p>{{lesson.description}}</p>
+                </a>
+            </div>
+            {%empty%}
+                <h1>Lessons to be published soon!!! please check again next time</h1>
+            {%endfor%}
+        </div>
+    </div>
+     
+        {%endif%}
+    </div>
+</section>
+{%endblock content%}
+
+

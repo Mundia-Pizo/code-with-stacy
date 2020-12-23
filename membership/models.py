@@ -8,7 +8,7 @@ CHOICES=(
 )
 
 class Membership(models.Model):
-    membership_type = models.CharField(max_length=30, choices=CHOICES)
+    membership_type = models.CharField(max_length=30, choices=CHOICES,  default='free')
     slug            = models.SlugField()
     price           = models.DecimalField(max_digits=6, decimal_places=2)
 

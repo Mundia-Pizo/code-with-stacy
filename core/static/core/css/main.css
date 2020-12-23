@@ -153,14 +153,7 @@ form{
     margin-top:20px;
     margin-bottom:100px;
 }
-/* .content-section{
-    display: flex;
-    flex-direction:row;
-    flex-wrap: wrap-reverse;
-    justify-content: space-evenly;
-    margin:auto;
-    
-} */
+
 .tag{
     margin-bottom: 100px;
 }
@@ -210,10 +203,17 @@ footer{
     display: flex;
     flex-direction:column;
 }
+.template-tag{
+    width:60%;
+    margin: auto;
+}
 
 .lesson-detail{
     margin: auto;
     margin-bottom: 80px;
+}
+.lessons{
+    justify-content:space-evenly;
 }
 .lesson-detail h1{
     margin-top:15px
@@ -286,10 +286,13 @@ button {
 .bio {
     position: relative;
 }
-.bio img{
+.bioimage img, .bio img{
   width:100%;
-  height:700px;
+  height:400px;
   margin:auto;
+}
+.bio1 img{
+    height:700px
 }
 .bio-data{
     position: absolute;
@@ -300,15 +303,19 @@ button {
     flex-direction: column;
     align-items: center
   }
-
+.bio-data button{
+    margin-top: 20px;
+}
   .bio-data h1, .banner h1, .copyright p{
       text-align: center;
+     
   }
-  .copyright p{
+  .bio-data h1{
+      color: white;
+      font-size:40px;
+  }
+  .copyright p, .banner h1{
       margin-top: 25px;
-  }
-  .banner h1{
-      margin-top:25px;
   }
   .banner{
       align-items: center;
@@ -385,12 +392,15 @@ button {
     margin-top:5px;
     margin-bottom:5px;
 }
+.topic-bottom{
+    margin-bottom:80px
+}
 @media(max-width:920px){
     .bio-data h1{
         font-size:large;
     }
-    .bio-data img{
-        height:300px;
+    .bio-data img, .bioimage img{
+        height:250px;
     }
     .bio-data{
         top: 50%; 
@@ -405,5 +415,8 @@ button {
         margin-top: 60px;
         margin-bottom: 60px;
         width:400px;
+    }
+    .form{
+        width: 90%;
     }
 }

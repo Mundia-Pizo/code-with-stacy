@@ -2,7 +2,7 @@
 {%block content%}
 <section class="container">
     <div class="video-position">
-        {%if object is not None%}
+        {%if object is not False%}
             <h1>{{object.title}}</h1>
             <iframe src="{{object.video_url}}" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         {%else%}

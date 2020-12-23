@@ -1,8 +1,10 @@
 {%extends 'core/layout.html'%}
 {%block content%}
-    <section class="container">
-        <h1>{{object.title}}</h1>
+    <section class="container topic-bottom">
+    <div class="blog-section">
+       
         <div class="blog">
+            <h1>{{object.title}}</h1>
             {%for post in object.articles%}
             <div class="topic-card">
                 <div class="topic-content">
@@ -14,6 +16,14 @@
                 </div>
             </div>
             {%endfor%}
-        </div>        
+        </div> 
+        <div class="side-bar">
+            {%for topic in object.articles%}
+            <a href="{{topic.get_absolute_url}}">
+                <p>{{topic.title}}</p>
+            </a>
+            {%endfor%}
+        </div>   
+    </div>    
     </section>
 {%endblock content%}

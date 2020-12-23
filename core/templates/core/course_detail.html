@@ -1,24 +1,40 @@
 {%extends 'accounts/base.html'%}
+{%load static %}
 {%block content%}
-<section class="">
-    {%if object.allowed_membership  == 'free'%}
-        <h1>Upgrade to professional subscription</h1>
-        <p>{{object.allowed_membership.price}}</p>
-    {%else%}
-    <h1>{{object.title}}</h1>
-      <div class="course-list">
+<section class="content-decoration">
+    <div class="bio bioimage">
+        <img src="{% static "core/images/hero1.png"%}" alt="" srcset="">
+        <div class="bio-data">
+            <div>
+                <h1>{{object.title}}</h1>
+                <h1>Master your coding Skills with the industry coding standards!!!</h1>
+            </div>
+            {%if object.lessons%}
+            <div class="bio-info">
+                <div>
+                  <a href="{% url 'payment'%}"><button type="submit">Enrole now</button></a> 
+                </div>
+            </div> 
+            {%else%}
+            {%endif%} 
+       </div>
+    </div>
+    <div class="container">
+    <div>
+        <h1>lessons in this course include</h1>
+        <div class="course-list lessons">
             {%for lesson in object.lessons%}
             <div class="card">
-                <a href="{{lesson.get_absolute_url}}">
+                <a href="{{lesson.get_absolute_url}}"></a>
                     <img src="{{lesson.image.url}}" alt="">
                     <p>{{lesson.description}}</p>
-                </a>
             </div>
             {%empty%}
                 <h1>Lessons to be published soon!!! please check again next time</h1>
             {%endfor%}
         </div>
-        {%endif%}
+    </div>
+    </div>
 </section>
 {%endblock content%}
 
