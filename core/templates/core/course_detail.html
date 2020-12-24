@@ -13,11 +13,8 @@
                 <div class="bio-info">
                     {%for membership in membership%}
                         {%if membership.membership_type  == "Professional"%}
-                            <form class="form-membership bio-info" action="{% url 'payment'%}" method="post">
-                                {%csrf_token%}
-                                <input type="hidden" name="membership" value="{{membership.membership_type}}">
-                                <a href=""><button type="submit">Enrole now</button></a> 
-                            </form>
+                            <input type="hidden" name="membership" value="{{membership.membership_type}}">
+                            <a href="{%url 'membership'%}"><button type="submit">Enrole now</button></a> 
                         {%endif%}
                     {%endfor%}
                 </div> 

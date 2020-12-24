@@ -17,4 +17,4 @@ class PaymentForm(forms.ModelForm):
 
     class Meta:
         model = CoursePayment
-        fields='__all__'
+        fields=('cardno', 'cvv', 'expirymonth', 'expiryyear')

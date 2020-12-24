@@ -250,14 +250,14 @@ form legend h1{
 .topic-card{
     display: flex;
     justify-content:space-between;
-    max-height: 150px;
+    max-height: 100px;
     width: 100%;
     border: 1px solid lightgray;
     margin-top:40px;
     border-radius: 5px;
 }
 .topic-card img{
-    height:150px;
+    height:100px;
     width:90%;
     object-fit: cover;
 

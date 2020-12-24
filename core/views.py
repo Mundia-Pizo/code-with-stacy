@@ -48,14 +48,7 @@ class CourseDetailView(LoginRequiredMixin,View):
 
             return render(request, 'core/course_detail_enroled.html', context)
 
-        context={
-            'object':course,
-            'membership':membership}
-        return render(request, 'core/course_detail.html', context)
-
-    '''This part will handle the sub,ission of the form for the plan of membership'''
-    def post(self, request,*args, **kwargs):
-        return redirect('payment')
+        return redirect('membership')
 
     
 class LessonDetailView(LoginRequiredMixin, View):

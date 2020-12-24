@@ -5,7 +5,10 @@
    
     <div class="">
         <legend><h1>Payment</h1></legend>
+        {{selected_membership}}
         {%csrf_token%}
+        <!-- {{form.as_p}}
+        <button type="submit">Pay</button> -->
         <div class="payment-form">
             <div class="card-input">
                 <label for="">Card Number</label>
@@ -26,7 +29,7 @@
                 {{form.cvv}}
                 <button type="submit">Make Payments</button>
             </div>
-        </div>
+        </div> 
     </div>
 </form>
 {%endblock content%}

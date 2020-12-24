@@ -1,0 +1,35 @@
+{%extends 'accounts/base.html'%}
+{%load static %}
+{%block content%}
+<section class="content-decoration">
+    <div class="bio bioimage">
+        <img src="{% static "core/images/hero1.png"%}" alt="" srcset="">
+        <div class="bio-data">
+            <div>
+                <h1>Master your programming skills and set yourself for a better dream</h1>
+                <h2>To access this course please subscribe to the professional subscription</h2>
+            </div>
+                <div class="bio-info">
+                    {%for membership in object_list%}
+                        {%if membership.membership_type  == "Professional"%}
+                        <form action="{%url 'membership'%}" method="post">
+                            {%csrf_token%}
+                            <input type="hidden" name="membership_type" value="{{membership.membership_type}}">
+                            <button type="submit">Enrole now</button>
+                        </form>
+                        {%endif%}
+                    {%endfor%}
+                </div>   
+       </div>
+    </div>
+    <div class="container">
+        <div>
+            <h1>lessons in this course include</h1>
+            <div class="course-list lessons">
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock content%}
+
+
