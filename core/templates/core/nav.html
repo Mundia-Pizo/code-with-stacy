@@ -10,7 +10,7 @@
             <ul>
                <a href="{%url 'home'%}"><li>Home</li></a>
                 <a href="{%url  'courses'%}"><li>Courses</li></a>
-                <a href="{% url 'app_temp'%}"><li>Templates</li></a>
+                <!-- <a href="{% url 'app_temp'%}"><li>Templates</li></a> -->
                 <a href="{% url 'blogs'%}"><li>Blogs</li></a>
                 {%if user.is_authenticated %}
                 <a href="{%url 'logout'%}"><li>logout</li></a>

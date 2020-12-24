@@ -60,15 +60,7 @@ class LessonDetailView(LoginRequiredMixin, View):
         lesson_qs=course.lessons.filter(slug=lesson_slug)
         if lesson_qs.exists(): 
             lesson=lesson_qs.first()
-
-        # user_membership = UserMembership.objects.filter(user=request.user).first()       
-        # user_membership_type=user_membership.membership.membership_type
-
-        # course_allowed_membership_types=course.allowed_membership.all()
-        # context={
-        #     "object":None
-        # }
-        # if course_allowed_membership_types.filter (membership_type=user_membership_type).exists():
+            
             context={
                  'object':lesson
              }

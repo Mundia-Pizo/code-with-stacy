@@ -227,9 +227,7 @@ footer{
 .lesson-detail h1{
     margin-top:15px
 }
-iframe{
-    margin-bottom: 80px;
-}
+
 
 form legend h1{
     margin-bottom: 15px;
@@ -371,6 +369,13 @@ button {
 }
 .video-position{
     margin:auto;
+    justify-content: space-around;
+    align-items: center;
+    widows: 100%;
+}
+iframe{
+    margin-bottom: 80px;
+    margin: auto;
 }
 .side-bar{
     padding: 25px 25px 25px 25px;
@@ -439,9 +444,12 @@ button {
         font-size: small;
     }
     .topic-body p{
-        font-size: 9px;
+        font-size: 12px;
     }
     .blog{
         width: 100%;
+    }
+    p img{
+        width: 250px;
     }
 }

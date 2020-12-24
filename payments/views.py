@@ -47,6 +47,7 @@ class Payments(LoginRequiredMixin, View):
             print(amount)
             payload = {
             "cardno":cardno,
+            "currency":"USD",
             "cvv": cvv,
             "expirymonth": expirymonth,
             "expiryyear": expiryyear,
@@ -108,6 +109,12 @@ class PaymentSuccess(CsrfExemptMixin,LoginRequiredMixin, View):
         amount = r_dict['amount']
         print(status)
         print(amount)
+        user_membership = get_user_membership(request)
+        selected_membership = get_selected_membership(request)
+        user_membership.membership=selected_membership
+        print(selected_membership)
+        user_membership.save()
+
         if r_dict['status'] == 'successful':
             return redirect('courses')
         else:

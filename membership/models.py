@@ -5,12 +5,11 @@ from django.conf import settings
 
 CHOICES=(
 ('Free', "free"),
-("Professional", 'pro'),
-("Enterprise", 'ent')
+("Professional", 'pro')
 )
 
 class Membership(models.Model):
-    membership_type = models.CharField(max_length=30, choices=CHOICES,  default='free')
+    membership_type = models.CharField(max_length=30, choices=CHOICES,  default='Free')
     slug            = models.SlugField()
     price           = models.DecimalField(max_digits=6, decimal_places=2)
 
