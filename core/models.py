@@ -7,7 +7,7 @@ class Course(models.Model):
     description = models.TextField()
     image        = models.ImageField(upload_to="course-images")
     slug         = models.SlugField(null=True, blank=True)
-    # allowed_membership = models.ManyToManyField(Membership, default='free')
+    allowed_membership = models.ManyToManyField(Membership, default='free')
     enroled      = models.BooleanField(default=False)
 
     def __str__(self):

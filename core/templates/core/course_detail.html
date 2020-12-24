@@ -10,30 +10,37 @@
                 <h1>Master your coding Skills with the industry coding standards!!!</h1>
             </div>
             {%if object.lessons%}
-            <div class="bio-info">
-                <div>
-                  <a href="{% url 'payment'%}"><button type="submit">Enrole now</button></a> 
-                </div>
-            </div> 
-            {%else%}
-            {%endif%} 
+                <div class="bio-info">
+                    {%for membership in membership%}
+                        {%if membership.membership_type  == "Professional"%}
+                            <form class="form-membership bio-info" action="{% url 'payment'%}" method="post">
+                                {%csrf_token%}
+                                <input type="hidden" name="membership" value="{{membership.membership_type}}">
+                                <a href=""><button type="submit">Enrole now</button></a> 
+                            </form>
+                        {%endif%}
+                    {%endfor%}
+                </div> 
+            {% else %}
+            {% endif %} 
+            
        </div>
     </div>
     <div class="container">
-    <div>
-        <h1>lessons in this course include</h1>
-        <div class="course-list lessons">
-            {%for lesson in object.lessons%}
-            <div class="card">
-                <a href="{{lesson.get_absolute_url}}"></a>
-                    <img src="{{lesson.image.url}}" alt="">
-                    <p>{{lesson.description}}</p>
+        <div>
+            <h1>lessons in this course include</h1>
+            <div class="course-list lessons">
+                {%for lesson in object.lessons%}
+                    <div class="card">
+                        <a href="{{lesson.get_absolute_url}}"></a>
+                            <img src="{{lesson.image.url}}" alt="">
+                            <p>{{lesson.description}}</p>
+                    </div>
+                {%empty%}
+                    <h1>Lessons to be published soon!!! please check again next time</h1>
+                {%endfor%}
             </div>
-            {%empty%}
-                <h1>Lessons to be published soon!!! please check again next time</h1>
-            {%endfor%}
         </div>
-    </div>
     </div>
 </section>
 {%endblock content%}

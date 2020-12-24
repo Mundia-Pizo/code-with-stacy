@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.conf import settings
 
 CHOICES=(
 ('Free', "free"),
@@ -22,6 +24,15 @@ class UserMembership(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+def post_save_usermembership(sender, instance, created, *args, **kwargs):
+    if created:
+        UserMembership.objects.get_or_create(user=instance)
+    user_membership, created =UserMembership.objects.get_or_create(user=instance)
+    user_membership.save()
+
+post_save.connect(post_save_usermembership, sender=settings.AUTH_USER_MODEL)
 
 class Subscription(models.Model):
     user_membership = models.ForeignKey(UserMembership, on_delete=models.CASCADE)

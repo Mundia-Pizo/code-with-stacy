@@ -1,6 +1,9 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView,View, DetailView
-from  membership.models import UserMembership
+from django.shortcuts import render, redirect
+from django.views.generic import (
+    TemplateView, 
+    ListView,View, 
+    DetailView)
+from  membership.models import UserMembership, Membership
 from .models import Course, Lesson
 from django.contrib.auth.mixins import LoginRequiredMixin
 from core.sub_form import SubscriptionForm
@@ -10,8 +13,7 @@ class Home(ListView):
     template_name = 'core/home.html'
     model=Course
     
-
-class  SubsriptionView(FormView):
+class SubsriptionView(FormView):
     template_name = 'core/subscription.html'
     form_class = SubscriptionForm()
     success_url = 'thanks'
@@ -22,7 +24,7 @@ class  SubsriptionView(FormView):
             form.save()
         return  super().form_valid(form)
       
-class  ThanksView(TemplateView):
+class ThanksView(TemplateView):
     template_name = 'core/thanks.html'
     
 class CourseListView(LoginRequiredMixin, ListView):
@@ -30,20 +32,30 @@ class CourseListView(LoginRequiredMixin, ListView):
     template_name ='core/courses.html'
 
 class CourseDetailView(LoginRequiredMixin,View):
-    model = Course
-    template_name = 'core/course_detail.html'
-
     def get(self, request, slug, *args, **kwargs):
         course_qs = Course.objects.filter(slug=slug)
+        membership = Membership.objects.all()
         if course_qs.exists():
             course = course_qs.first()
-            if course.enroled == False:
-                context={
-                    'object':course
-                }
-                return render(request, 'core/course_detail.html', context)
-            context={'object':course}
-        return render(request, 'core/course_detail_enroled.html', context)
+        user_membership = UserMembership.objects.filter(user=request.user).first()       
+        user_membership_type=user_membership.membership.membership_type
+
+        course_allowed_membership_types=course.allowed_membership.all()
+        
+        context={'object':course}
+
+        if course_allowed_membership_types.filter (membership_type=user_membership_type).exists() or course_allowed_membership_types.filter(membership_type='Free'):
+
+            return render(request, 'core/course_detail_enroled.html', context)
+
+        context={
+            'object':course,
+            'membership':membership}
+        return render(request, 'core/course_detail.html', context)
+
+    '''This part will handle the sub,ission of the form for the plan of membership'''
+    def post(self, request,*args, **kwargs):
+        return redirect('payment')
 
     
 class LessonDetailView(LoginRequiredMixin, View):
