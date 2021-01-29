@@ -10,9 +10,14 @@ from .forms import PaymentForm
 import json
 import os
 
-secretkey = os.environ.get('FLW_SECRETE_KEY')
-publickey =os.environ.get('FLW_PUBLIC_KEY')
-RAVE_ENCRYPTION_KEY =os.environ.get('FLW_ENC_KEY')
+
+publickey = 'FLWPUBK_TEST-b95de48e62b7a5e93729f723d569fdb2-X'
+secretkey= 'FLWSECK_TEST-745db074f3d2de69c536a2a2e22d4da8-X'
+RAVE_ENCRYPTION_KEY = 'FLWSECK_TEST7f52eceed7e5'
+
+# secretkey = os.environ.get('FLW_SECRETE_KEY')
+# publickey =os.environ.get('FLW_PUBLIC_KEY')
+# RAVE_ENCRYPTION_KEY =os.environ.get('FLW_ENC_KEY')
 rave = Rave(publickey,secretkey,usingEnv=False)
 
 

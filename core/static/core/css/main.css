@@ -268,8 +268,7 @@ form legend h1{
 }
 /* This is  style for the images that are uploaders via ckeditor */
 p img{
-    border: 1px solid #8151cd;
-    border-radius: 5px;
+    width: 100%;
 }
 
 button {
