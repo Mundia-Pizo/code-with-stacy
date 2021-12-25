@@ -1,0 +1,75 @@
+{%extends 'blogs/layout.html'%}
+{%load static %}
+{%block content%}
+<div class="container bio-space">
+    <section class="bio-info">
+        <div class="bio-image-info">
+            <img src="{%static 'core/images/mundia.png'%}" alt="" srcset="">
+        </div>
+        <div class="bio-info-data" >
+            <h1 class="text-center">Hi, My name is Mundia Stacy Pizo</h1>
+            <p>I am a software Engineer and creator of Think and code. I am an Electrical Electronic and Telecommunications Engineer with a Bachelors Degree. I Take pleasure in imparting skill in people and also in creating customer satisfying softwares. I have been creating softwares for the past five years now.</p>
+        </div>
+    </section>
+    <div class="container">
+        <h1 class="text-center lg-heading">Skills</h1>
+        <div class="main-grid">
+            <div class="job job-2 skill-padding">
+                <h3 class="mb-3">Full stack Developer</h3>
+                <i class="fab fa-html5 fa-3x text-primary"></i>
+                <i class="fab fa-react fa-3x text-info"></i>
+        
+                <i class="fab fa-angular fa-3x text-danger"></i>
+                <i class="fab fa-vuejs fa-3x text-info"></i>
+                <i class="fab fa-python fa-3x text-info"></i>
+                <i class="fab fa-node fa-3x text-info"></i>
+                <img class="icon" src="{% static 'core/icons/flutter.png'%}" alt="" style="width: 40px;height: 40px; margin-bottom: 10px;">
+                <img class="icon" src="{% static 'core/icons/firebase.png'%}" alt="" style="width: 40px;height: 40px; margin: 0 0 10px 10px;">
+                <p>I also develop responsive UI's using javascript, Html, CSS and React. Also learning angular and Vue for front end development. </p>
+            </div>
+            <div class="job job-3 skill-padding">
+                <h3 class="mb-3">Artificial intelligence and Robotics</h3>
+                    <img class="icon" src="{% static 'core/icons/tensorflow.png'%}" alt="" style="width: 40px;height: 40px; margin: 0px 0px 10px 10px;">
+                
+                    <img class="icon" src="{% static 'core/icons/robotics.jpeg'%}" alt="" style="width: 40px;height: 40px; margin-bottom: 10px;">
+            
+                    <img class="icon" src="{% static 'core/icons/matlab.jpeg'%}" alt="" style="width: 40px;height: 40px; margin: 0 10px 10px 10px;">
+                    <img class="icon" src="{% static 'core/icons/rasp.jpeg'%}" alt="" style="width: 40px;height: 40px; margin: 0 10px 10px 10px;">
+               
+               
+                  
+                    <img class="icon" src="{% static 'core/icons/python.jpeg'%}" alt="" style="width: 40px;height: 40px;margin-bottom: 10px;">
+           
+                <p>I develop robots using different technologies such as tensorflow, raspberry pi, arduino etc. </p>
+            </div>
+           
+        </div>
+    
+    </div>
+
+    <!-- this is the projects section  -->
+    <div class="container">
+    <div id="work">
+        <h1 class="lg-heading text-center">
+          My
+          <span class="text-warning">Work</span>
+        </h1>
+        <h2 class="sm-heading text-center"  style="background-color: white;">
+          Check out my works in different technologies...
+        </h2>
+        <div class="project-section-class main-grid">
+          {%for object in projects%}
+            <div class="card">
+                <a href="{% url 'project-detail' object.id%}">
+                    <img src="{{object.image.url}}" alt="Project" class="project-images-on" style="width:100%">
+                </a>
+                <a href="{%url 'project-detail' object.id%}" class="btn-light btn-style1">
+                    <i class="fas fa-eye"></i> {{object.title}}
+                </a>
+            </div>
+          {%endfor%}
+       </div>
+    </div>
+    </div>
+</div>
+{%endblock content%}

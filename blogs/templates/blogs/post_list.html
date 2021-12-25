@@ -1,0 +1,57 @@
+{%extends 'blogs/layout.html'%}
+{%load static%}
+{%block content%}
+<div>
+    <section class="section-padding">
+    {%include 'blogs/searchbar.html'%}
+    </section>
+  
+    <!-- this is the section for the blogs that are made in a nice way -->
+    <section class="latest-posts " style="padding-top: 30px;"> 
+      <div class="container mx-auto">
+        <!-- <header> 
+          <h2>Latest from the blog</h2>
+          <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </header> -->
+        <div class="">
+          <div class="main-grid">
+            {%for post in page_obj%}
+                <div class="card" style="margin-top: 20px;">
+                    <a href="{%url 'post-detail' post.slug %}" style="color:black;">
+                        <img src="{{post.image.url}}" alt="" class="image mx-auto" style="object-fit: fill; width:100%; padding:10px; height:auto">
+                        <h4 style="padding: 10px; text-align:center">{{post.title}} ({{post.timestamp|date}})</h4>
+                        <p class="description" style="padding: 10px; text-align:center">{{post.description}}</p>
+                    </a>
+                </div>
+            {%empty%}
+                    <h1>There are no lessons yet</h1>
+            {%endfor%}
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- this is where all ends for the blogs  -->
+  
+        <div class="container mx-auto">
+          <div class="col-md-6 mx-auto">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" style="font-weight: bold;font-size: 20px; margin-right: 10px;">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" style="font-weight: bold;font-size: 20px; margin-right: 10px;">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" style="font-weight: bold;font-size: 20px; margin-right: 10px;">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" style="font-weight: bold;font-size: 20px; margin-right: 10px;">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+      </div>    
+    </div>
+  </div>
+{%endblock content%}

@@ -1,0 +1,38 @@
+{%extends 'blogs/layout.html'%}
+{%block content%}
+<div class="">
+<!-- <div class="blog-hero" style="height:50vh;text-align:center;color: white;background: url({{object.image.url}}) no-repeat; background-size:100vw 50vh;">
+    <div class="" style=" height: 50vh; padding-top: 30px; color: white; background-color:rgba(0,0,0, 35%)">
+       <h1 class="heading-1" style="color: white;">{{object.title}} </h1>
+       <div>
+           <img src="{{object.author.profile.image.url}}" alt="" style="width: 65px;height: 65px; border-radius: 50%; margin-bottom: 20px;">
+           <p>Written by: {{object.author.username}}</p>
+           <p>{{object.timestamp|date}}</p>
+           {%if user.is_superuser%}
+            <a href="{%url 'post-delete' object.slug%}" style="color: white;">Delete |</a>
+            <a href="{%url 'post-update' object.slug%}"  style="color: white;">Update</a>
+           {%endif%}
+       </div>
+    </div>
+  </div>  -->
+    <div class="container mx-auto " >
+        <div class="space-bottom">
+            <div class="blog lesson-style mx-auto">
+                <p>{{object.body|safe}}</p>
+            </div> 
+            <div class="space-bottom">
+                {%if user.is_superuser%}
+                <div class="lesson-style mx-auto">
+                    <img src="{{object.author.profile.image.url}}" alt="" style="width: 65px;height: 65px; border-radius: 50%; margin-bottom: 20px;">
+                    <p>Written by: {{object.author.username}}</p>
+                    <p>{{object.timestamp|date}}</p>
+                     <a href="{%url 'post-delete' object.slug%}" style="color: white;">Delete |</a>
+                     <a href="{%url 'post-update' object.slug%}"  style="color: white;">Update</a>
+                    
+                </div>
+                {%endif%}
+            
+        </div>       
+    </div>
+</div>
+{%endblock content%}

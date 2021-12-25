@@ -1,0 +1,99 @@
+{%extends 'blogs/layout.html'%}
+{%load static%}
+{%block content%}
+   <!-- Hero Section-->
+   <section style="background: url(static/core/img/background.jpg); background-size: cover; background-position: center center" class="hero">
+    <div style="background-color: rgba(0,0,0, 40%);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <h1>Learn coding, build scalable web and mobile apps in
+            <span>simple easy steps!!!</span>
+          </h1><a href="{% url 'blogs'%}" class="hero-link">Discover More</a>
+        </div>
+  </div>
+  </section>
+  <section class="bio-info" style="margin-bottom: opx;padding-bottom: 0px;">
+        <img class="bioimage" src="{%static 'core/images/mundia.png'%}" alt="" srcset="" style="width: 300px;height: 300px;border-radius: 50%;">
+    <div class="bio-info-data" >
+        <h1 class="text-center">Welcome to think and code</h1>
+        <p><strong>Hi my name is Stacy, I am a software Engineer and creator of Think and code. I am an Electrical Electronic and Telecommunications Engineer with a Bachelors Degree. I Take pleasure in imparting skill in people and also in creating customer satisfying softwares.</strong></p>
+        <div>
+          <!-- <h1 class="text-center">Connect</h1> -->
+        <div class="icon-section" style="display: flex; flex-direction: row;flex-wrap: wrap; align-items: center; justify-content: center;">
+          <a href="https://twitter.com/mundiapizo">
+            <img class="home-icon" src="{% static 'core/icons/twitter.png'%}" alt="" style="width: 40px;height: 40px; margin: 0 20px 0 20px; border-radius: 0px;">
+          </a>
+          <a href="https://www.instagram.com/mundiastacy/">
+            <img class="home-icon" src="{% static 'core/icons/instagram.jpeg'%}" alt=""style="width: 40px;height: 40px; margin: 0 20px 0 20px; border-radius: 0px;">
+          </a>
+          <a href="https://www.linkedin.com/in/mundia-stacy-pizo-0921b6147/">
+            <img class="home-icon" src="{% static 'core/icons/linkedin.png'%}" alt="" style="width: 40px;height: 40px; margin: 0 20px 0 20px; border-radius: 0px;">
+          </a>
+          <a href="https://www.youtube.com/channel/UCqRryMyMpm9dKESaQI-x1rQ">
+            <img class="home-icon" src="{% static 'core/icons/youtube.jpeg'%}" alt="" style="width: 40px;height: 40px; margin: 0 20px 0 20px; border-radius: 0px;">
+          </a>
+            <div>
+            <a href="{%url 'about'%}">
+              <button style="margin-top: 10px; margin-bottom: 10px; background-color: #e57373; border-radius: 8px; color: white;">More about me</button>
+            </a>
+            </div>
+
+          </div>
+        </div>
+    </div>
+</section>
+  <!-- Intro Section-->
+  <!-- Latest Posts -->
+  <section class="latest-posts "> 
+    <div class="container mx-auto">
+      <header style="color: none;">
+        <h1 class="mx-auto" style="color: black;">Latest Lessons</h1>
+      </header>
+
+
+      <div class="">
+        <div class="main-grid">
+          {%for post in latest_articles%}
+              <div class="card" style="margin-top: 20px;">
+                  <a href="{%url 'post-detail' post.slug %}" style="color:black;">
+                      <img src="{{post.image.url}}" alt="" class="image mx-auto" style="object-fit: fill; width:100%; padding:10px; height:auto">
+                      <h4 style="padding: 10px; text-align:center">{{post.title}} ({{post.timestamp|date}})</h4>
+                      <p class="description" style="padding: 10px; text-align:center">{{post.description}}</p>
+                  </a>
+              </div>
+          {%empty%}
+                  <h1>There are no lessons yet</h1>
+          {%endfor%}
+      </div>
+      </div>
+    
+    </div>
+  </section>
+ 
+  <!-- Newsletter Section-->
+  <!-- <section class="newsletter no-padding-top">    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Subscribe to Newsletter</h2>
+          <p class="text-big">Don't miss out, get notified when we create new content by subscribing to the newsletter.</p>
+        </div>
+        <div class="col-md-8">
+          <div class="form-holder">
+            <form action="." method="post">
+              {%csrf_token%}
+              <div class="form-group">
+                {{form.email}}
+                <button type="submit" class="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+    
+{%endblock content%}
+  

@@ -1,0 +1,277 @@
+* {
+  list-style: none;
+}
+.blog-hero {
+  margin: auto;
+  height: 50vh;
+  background-color: blue;
+}
+.home-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 20px 0 20px;
+  border-radius: 0px;
+}
+.lesson-style {
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+  width: 75%;
+}
+.subscription {
+  border: 1px solid powderblue;
+  width: 50%;
+  margin-bottom: 50px;
+}
+.button-center {
+  margin: auto;
+}
+.tick-icon {
+  height: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.image-border {
+  border-radius: 25px;
+}
+.container-1 {
+  width: 85%;
+  margin: auto;
+}
+.blog-hero-specific {
+  height: 50vh;
+  text-align: center;
+  color: white;
+  background-size: 100vw 50vh;
+}
+.li-margin-top {
+  margin-top: 20px;
+}
+.form-class {
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+.blog-head {
+  height: 40vh;
+  color: white;
+  background-color: #78909c;
+  text-align: center;
+  padding-top: 30px;
+}
+.blog-body {
+  width: 70%;
+}
+.search-items {
+  display: flex;
+  flex-direction: row;
+  padding-right: 25px;
+}
+
+.blog-body .blog {
+  padding-top: 25px;
+}
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 40px;
+}
+.search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr ifr;
+  margin-top: 40px;
+}
+.main-grid-space {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+.section-padding {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px;
+}
+.image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 35px;
+}
+.post-list .card {
+  border: none;
+}
+nav ul li {
+  text-transform: uppercase;
+}
+.post-body-color {
+  background-color: #e8eaf6;
+}
+/* .post-list{
+    background-color: #e8eaf6;;
+} */
+.search-bar {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.video-position {
+  position: relative;
+  padding-bottom: 52.25%;
+  margin-bottom: 100px;
+  background-color: #333;
+}
+.video-position iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: 200px;
+  background-color: #333;
+}
+ul {
+  list-style: none;
+}
+button {
+  background-color: powderblue;
+  border: 2px;
+  color: black;
+  padding: 10px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+.card a {
+  text-decoration: none;
+}
+.bio-data img {
+  height: 400px;
+  width: 100%;
+  border: 4px solid white;
+  margin-top: 40px;
+  object-fit: cover;
+}
+
+.bio-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.bio-info div img:first-child,
+.bioimage {
+  border-radius: 50%;
+  width: 300px;
+  height: auto;
+}
+.bio-info-data {
+  width: 60%;
+}
+.bio-info h4,
+.bio-info p {
+  text-align: center;
+  margin-top: 15px;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.home-info-sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 70px;
+  flex-wrap: wrap;
+}
+.fade-in div:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.main-grid button {
+  border-radius: none;
+  padding: 4px 10px;
+  background-color: rgb(255, 91, 99);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-radius: none;
+  height: 40px;
+  color: white;
+}
+nav button {
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+form button {
+  padding: 10px 28px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+@media (max-width: 780px) {
+  .heading-3 {
+    font-size: 21.5px;
+  }
+  .bio-info-data {
+    width: 85%;
+  }
+  .image {
+    height: 185px;
+  }
+  .lg-heading {
+    font-size: 3em;
+  }
+  .heading-1 {
+    font-size: 33px;
+  }
+  .main-grid,
+  .search-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .subscription {
+    width: 85%;
+  }
+  .card {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  .blog-body {
+    width: 80%;
+  }
+  .container-1 {
+    width: 100%;
+  }
+}
+@media (max-width: 520px) {
+  .main-grid,
+  .search-grid {
+    grid-template-columns: 3fr;
+  }
+  .lesson-style {
+    width: 100%;
+  }
+  .blog-body {
+    width: 100%;
+  }
+  .container-1 {
+    width: 95%;
+  }
+  .blog-head {
+    height: 35vh;
+  }
+  .blog-hero,
+  .blog-hero-specific {
+    height: 35vh;
+  }
+  .home-icon {
+    margin: 0 10px 0 10px;
+    border-radius: 0px;
+  }
+}

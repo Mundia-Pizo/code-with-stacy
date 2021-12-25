@@ -1,0 +1,20 @@
+{%extends 'blogs/layout.html'%}
+{%block content%}
+<section class="container" style="padding-top:0px ; margin-top: 0px;">
+    <div class="col-md-10 mx-auto">
+        {%if object is not None%}
+        <h1 style="margin-top: 25px;margin-bottom: 25px; text-align:center">{{object.title}}</h1>
+        <div class="video-position">
+                <iframe src="{{object.video_url}}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>   
+        </div>
+        {%else%}
+        <p>This is not your subscription plan. <a class="anchor" href="{%url 'payment'%}">Please Upgrade!!!!</a></p>
+        {%endif%}
+        <div class="notes">
+            <p>{{object.notes|safe}}</p>
+        </div>     
+    </div>
+</section>
+{%endblock content%}
+
+

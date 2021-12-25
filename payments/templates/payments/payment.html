@@ -1,0 +1,34 @@
+{%extends 'blogs/layout.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+    <div class="mx-auto col-md-8">
+        <form  action="{%url 'payment'%}" method="POST" style="min-width: 300px;margin-top: 45px;  max-width: 450px;" class="col-md-6 mx-auto">
+            {%csrf_token%}
+            <legend class="text-center"><h2>Payment</h2></legend>
+            <div style="display: flex;justify-content: space-between;">
+                <div style="display:flex; flex-direction: column; width: 70%;"> 
+                    <label for="">Card Number</label>
+                    {{form.cardno}}
+                </div>
+                <div style="display:flex; flex-direction: column; width:25% ;">
+                    <label for="cvv">cvv</label>
+                    {{form.cvv}}
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="display:flex; flex-direction: column; width: 48%;"> 
+                    <label for="">Expiry month</label>
+                    {{form.expirymonth }}
+                </div>
+                <div style="display:flex; flex-direction: column; width: 48%;">
+                    <label>Expiry year</label>
+                    {{form.expiryyear }}
+                </div>
+            </div>
+            <button style="width: 100%; margin-top: 20px;margin-bottom: 40px;" type="submit">Pay Now</button><span>
+        </form>
+    </div>
+       
+{%endblock content%}
+
+

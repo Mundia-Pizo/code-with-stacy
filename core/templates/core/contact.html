@@ -1,0 +1,53 @@
+{%extends 'blogs/layout.html'%}
+{%block content%}
+<section class="container">
+<div class="space-bottom">
+    <div class="container">
+        <div class="form-area">
+        <div>
+            <h1>Contact Us</h1>
+        </div>
+        <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <!-- <div class="form-input-section">
+                <div>
+                    {{form.sender.label_tag}}
+                </div>
+                <div>
+                    {{form.sender}}
+                </div>
+            </div> -->
+            <div class="form-input-section">
+                <div>
+                    {{form.email.label_tag}}
+                </div>
+                <div>
+                    {{form.email}}
+                </div>
+            </div>
+            <div class="form-input-section">
+                <div>
+                    {{form.subject.label_tag}}
+                </div>
+                <div>
+                    {{form.subject}}
+                </div>
+            </div>
+            <div class="form-input-section">
+                <div>
+                    {{form.message.label_tag}}
+                </div>
+                <div>
+                    {{form.message}}
+                </div>   
+            </div>
+            <div>
+                <button type="submit">send</button>
+            </div>
+        </form>
+        
+    </div>
+    </div>
+</div>
+</section>
+{%endblock content%}

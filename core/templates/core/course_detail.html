@@ -1,0 +1,44 @@
+{%extends 'blogs/layout.html'%}
+{%block content%}
+<div class="">
+    {%if object.allowed_membership  == 'free'%}
+       <div class="">
+            <h1>Upgrade to professional subscription</h1>
+            <p>{{object.allowed_membership.price}}</p>
+       </div>
+    {%else%}
+      <h1 style="text-align: center;">{{object.title}}</h1>
+      <div class="main-grid container-1">
+        {%for lesson in object.lessons%}
+            <div class="card" style="margin-top: 20px;">
+                <a href="{{lesson.get_absolute_url}}" style="color:black;">
+                    <img src="{{lesson.image.url}}" alt="" class="image mx-auto" style="object-fit: fill; width:100%; padding:10px; height:auto">
+                    <h4 style="padding: 10px; text-align:center">{{lesson.title}}</h4>
+                    <p class="description" style="padding: 10px;">{{lesson.description}}</p>
+                </a>
+            </div>
+        {%empty%}
+             <h1 style="text-align: center;">There are no lessons yet</h1>
+    
+        {%endfor%}
+    </div>
+
+      <!-- <div class="main-grid">
+            {%for lesson in object.lessons%}
+            <div class="card">
+                <a href="{{lesson.get_absolute_url}}">
+                    <img src="{{lesson.image.url}}" alt="" class="image">
+                    <p>{{lesson.description}}</p>
+                </a>
+            </div>
+            {%empty%}
+                <div class="info-section">
+                     <h1>Lessons to be published soon!!! please check again next time</h1>
+                </div>
+            {%endfor%}
+        </div> -->
+    {%endif%}
+</div>
+{%endblock content%}
+
+

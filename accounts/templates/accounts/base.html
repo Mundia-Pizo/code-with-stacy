@@ -1,0 +1,18 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "core/css/main.css"%}">
+    <title>Cracking codes</title>
+</head>
+<body>
+   {%include 'core/nav.html'%}>
+    <section class="container">
+                {%block content%}{%endblock content%}
+    </section>
+    {%include 'core/footer.html'%}
+    <script src="{%static "core/js/index.js"%}"></script>
+</body>
+</html>

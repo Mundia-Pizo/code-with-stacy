@@ -1,0 +1,18 @@
+{%extends 'blogs/layout.html'%}
+{%block content%}
+<div class="container">
+    <div class="mx-auto col-md-6" style="background-color: white; padding: 25px;">
+        <form action="." method="post">
+            {% csrf_token %}
+        <div class="space-bottom">
+            <h1>{{object.title}}</h1>
+            <img src="{{object.image.url}}" alt="" style="margin-bottom: 20px; width: 100%;"/> 
+            <div>       
+                <button type="submit" style="margin-right: 20px;">Delete</button>
+            </div>
+        </div>  
+    </form>   
+    <a href="{%url 'blogs'%}"><button>Cancel</button></a>  
+    </div>
+</div>
+{%endblock content%}

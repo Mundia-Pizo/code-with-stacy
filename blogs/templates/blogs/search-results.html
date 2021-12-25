@@ -1,0 +1,47 @@
+{%extends 'blogs/layout.html'%}
+{% load class_name %}
+{%load static%}
+{%block content%}
+<div>
+    {%include 'blogs/post-head.html'%}
+    <section class="section-padding">
+    {%include 'blogs/searchbar.html'%}
+    </section>
+    <!-- this is the section for the blogs that are made in a nice way -->
+    <section class="latest-posts " style="padding-top: 30px;"> 
+    <div class="container mx-auto">
+    <h1 class="text-center">Search results for <b>"{{query}}"</b></h1>
+    <div class="row mx-auto search-grid">
+    {% for object in object_list %}
+    {% with object|class_name as klass %}
+      {% if klass == 'Article' %}
+      <div class="post card" style="margin-top: 20px; padding:10px;margin:5px">
+        <div class="post-thumbnail"><a href="{%url 'post-detail' object.slug%}"><img src="{{object.image.url}}" alt="..." class="img-fluid" style="width: 100%;"></a></div>
+        <div class="object-details">
+          <div class="object-meta d-flex justify-content-between">
+            <div class="date">{{object.timestamp|date}}</div>
+           
+            <!-- <div class="category"><a href="#">{{category}}</a></div> -->
+          
+          </div><a href="{%url 'post-detail' object.slug%}">
+            <h3 class="h4">{{object.title}}</h3></a>
+          <p class="text-muted description">{{object.description}}</p>
+        </div>
+      </div>
+
+     {% endif %}
+        
+    {% endwith %}
+    
+    {% empty %}
+    <div class="container"> 
+    <h1 class="text-center" style="margin-top: 15px;">No results found :(</b></h1>
+    <h6 class="text-center" style="margin-top: 25px;">Try using key words such as django, postgresql, artificial intelligence , docker etc.</h6>
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+    </section>
+     </div>
+</div>
+{%endblock content%}

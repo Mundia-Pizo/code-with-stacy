@@ -1,0 +1,27 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+  {%include 'blogs/head.html'%}
+  <body>
+    <header class="header">
+      <!-- Main Navbar-->
+    {%include 'blogs/nav.html'%}
+    </header>
+    <!-- this is the main body of the application -->
+    {%block content%}
+    {%endblock content%}
+    <!-- Page Footer-->
+    {%include 'blogs/footer.html'%}
+    <!-- JavaScript files-->
+    <script src="{% static 'core/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'core/vendor/popper.js/umd/popper.min.js'%}"> </script>
+    <script src="{% static 'core/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'core/vendor/jquery.cookie/jquery.cookie.js'%}"> </script>
+    <script src="{% static 'core/vendor/@fancyapps/fancybox/jquery.fancybox.min.js'%}"></script>
+    <script src="{% static 'core/js/front.js'%}"></script>
+    <script src="{% static 'core/js/truncate.js'%}"></script>
+    <script src="{% static 'core/js/tinymce.js'%}"></script>
+    <script src="{% static 'core/js/config.js'%}"></script>
+    <!-- <script src="https://checkout.flutterwave.com/v3.js"></script> -->
+  </body>
+</html>

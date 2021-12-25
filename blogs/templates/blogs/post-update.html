@@ -1,0 +1,17 @@
+{% extends "blogs/layout.html" %}
+{%load crispy_forms_tags%}
+{% block content %}
+<div class="space-bottom ">
+    <div class="form-class">
+        <div class="col-md-8 mx-auto">
+            <form  method="post" action="{% url 'post-update' object.slug%}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <legend><h1>Update post</h1></legend>
+                {{form | crispy}}
+                {{form.media|safe}}
+                <button type="submit">Update Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

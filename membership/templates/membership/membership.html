@@ -1,0 +1,33 @@
+{%extends 'blogs/layout.html'%}
+{%load static%}
+{%block content%}
+<section>
+    <div class="container mx-auto">
+    <div class="mx-auto">
+        <h1 class="text-center" style="margin-top: 10px;margin-bottom: 15px;">Upgrade Subscription</h1>
+        <div class="subscription mx-auto" style="padding: 30px; border-radius: 20px;">
+            <h3 style="margin-bottom: 10px;margin-top: 10px">Professional Subscription</h3>
+            <h4>Whats included</h4>
+            <ul class="">
+                <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Writing clean resuable code.</li>
+                <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Test driven Development.</li>
+                <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Connection to Slack community.</li>
+                <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Quizes and Tests.</li>
+                <li><span><img class="tick-icon" src="{%static 'core/images/tick3.jpg'%}" alt="" srcset=""></span> Building real world applications.</li>
+            </ul>
+            <form action="{% url 'payment'%}" method="post" style="margin: auto;">
+              {%csrf_token%}
+                {%for membership in memberships%}
+                   <button type="submit" style="margin:auto">Go Professional <strong>${{membership.price}}</strong><small> /month </small> </button>
+                    
+                {%endfor%}
+            </form> 
+
+              
+        </div>
+    </div>
+</div> 
+
+</section>
+
+{%endblock content%}
